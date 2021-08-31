@@ -39,9 +39,7 @@ function Checkout(props) {
     let contactData = useSelector(state => state.contactData)
     let addressData = useSelector(state => state.addressData)
     let { choosedProducts, totalBill, discount, totalProducts } = useSelector(state => state.itemsInCart)
-  
-    let [addresses, setAddressData] = useState(addressData)
-    let [contacts, setContactData] = useState(contactData)
+
     let [isSelectedShedule, setSchedule] = useState({ schedule: {}, index: 0 })
     let [isSelectedAddress, setAddress] = useState({ address: {}, index: 0 })
     let [isSelectedPhone, setPhone] = useState({ phone: {}, index: 0 })
@@ -63,8 +61,6 @@ function Checkout(props) {
         setDeliveryAddress({ value: true, feature: "edit" })
     }
     const handleRemovedAddress = (index) => {
-        let addressData = addresses.splice(index, 1)
-        setAddressData(addressData)
         dispatch({ type: REMOVE_ADDRESS, payload: { index: index } })
     }
     const handleCreatedContact = () => {
@@ -75,9 +71,8 @@ function Checkout(props) {
         setContact({ value: true, feature: "edit" })
     }
     const handleRemovedContact = (index) => {
-        let contactData = contacts.splice(index, 1)
-        setContactData(contactData)
         dispatch({ type: REMOVE_CONTACT, payload: { index: index } })
+        handleChooseContact(contactData[0], 0)
     }
     const handleChooseContact = (item, contactIndex) => {
         contactData.forEach((contact, index) => {
