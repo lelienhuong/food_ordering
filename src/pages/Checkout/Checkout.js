@@ -247,7 +247,7 @@ function Checkout(props) {
                                 <p>${totalBill + totalBill * discount.discount / (100 - discount.discount)}</p>
 
                             ) : (
-                                <p>$0</p>
+                                <p>${totalBill}</p>
                             )
                         }
                     </div>

@@ -99,6 +99,8 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
             return state;
         }
         case REMOVE_VOUCHER: {
+            let total = state.totalBill + (state.totalBill * Number.parseInt(state.discount.discount) / (100 - Number.parseInt(state.discount.discount)))
+            state.totalBill = total
             state.discount = {}
             return state;
         }
