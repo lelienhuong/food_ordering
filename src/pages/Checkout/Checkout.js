@@ -244,7 +244,7 @@ function Checkout(props) {
                         <p>Sub Total</p>
                         {
                             discount.discount ? (
-                                <p>${totalBill * 100 / (100 - discount.discount)}</p>
+                                <p>${totalBill + totalBill * discount.discount / (100 - discount.discount)}</p>
 
                             ) : (
                                 <p>$0</p>
