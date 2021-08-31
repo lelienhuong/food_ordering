@@ -112,8 +112,8 @@ function Checkout(props) {
         setVoucherCode('')
     }
     const appliedVoucherFunction = () => {
-        if (isAppliedCode) {
-            if (isVoucherAvailable.value === 'available') {
+        if (isAppliedCode || discount.discount) {
+            if (isVoucherAvailable.value === 'available' || discount.discount) {
                 return (
                     <p style={{ color: "rgb(119, 121, 140)" }} class="mt-5">Coupon Applied
                         <span style={{ color: "rgb(0, 158, 127)", fontWeight: "600", marginLeft: "5px" }}> {discount.code}</span>
