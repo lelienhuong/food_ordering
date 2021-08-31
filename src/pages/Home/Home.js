@@ -18,6 +18,8 @@ function Home(props) {
     const [isOpenedBill, setOpenBill] = useState(false);
     useEffect(() => {
         window.scrollTo(0, 0)
+    }, [])
+    useEffect(() => {
         $('.nav-container').removeClass('navbar-otherPages')
         let introAndAdHeight = Math.round($(".home-container").outerHeight() + $(".advertisement-container").outerHeight() + $(".nav-container").outerHeight() + Number.parseFloat($(".sidebar-container").css("padding-top")))
         $(window).on("scroll", function () {
