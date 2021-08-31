@@ -1,56 +1,55 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
-
+import './App.scss'
+import Navbar from './components/Navbar/Navbar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import Home from './pages/Home/Home';
+import Offer from './pages/Offer/Offer';
+import Help from './pages/Help/Help';
+import ItemDetail from './pages/Home/ItemDetail';
+import Checkout from './pages/Checkout/Checkout';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <Navbar id="navbar" />
+      <Router>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => (<Redirect to="/grocery" />)}
+          />
+          <Route
+            path="/grocery"
+            component={Home}
+          />
+          <Route
+            exact
+            path="/product/:name"
+            component={ItemDetail}
+          />
+          <Route
+            exact
+            path="/offer"
+            component={Offer}
+          />
+          <Route
+            exact
+            path="/help"
+            component={Help}
+          />
+          <Route
+            exact
+            path="/checkout"
+            component={Checkout}
+          />
+        </Switch>
+      </Router>
     </div>
   );
 }

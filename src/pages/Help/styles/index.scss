@@ -1,0 +1,38 @@
+.help-container {
+  background-color: rgb(247, 247, 247);
+  background-size: 100%;
+  padding: 3vw 3vw;
+  .help-body--container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.questionItem-container {
+  width: 60%;
+  height: fit-content;
+  background-color: white;
+  border-radius: 0.4vw;
+  display: flex;
+  flex-direction: column;
+  margin: 1vw;
+  animation: height 0.5s ease;
+  overflow: hidden;
+  .question-container {
+    height: 4.5vw;
+    padding: 2vw;
+  }
+}
+.question-readed {
+  height: 5vw !important;
+  padding: 0 2vw 0 2vw;
+  transition: height 0.2s ease-in;
+}
+.answer-container {
+  text-align: initial;
+  height: 0;
+  padding: 0 2vw 0 2vw;
+  transition: height 0.2s ease-in;
+}

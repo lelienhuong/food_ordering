@@ -1,0 +1,39 @@
+@import "./intro";
+@import "./ad";
+@import "./sidebar";
+@import "./list";
+@import "./bill";
+
+.home-content--container {
+  position: relative;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+.sidebar-sticky {
+  position: fixed;
+  padding-top: 0.5vh;
+  left: 0;
+  transition: 0.1s ease;
+  overflow-y: scroll;
+  bottom: 0;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  

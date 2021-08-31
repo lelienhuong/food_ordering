@@ -1,0 +1,27 @@
+.nav-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+  .nav-logo {
+    width: 100%;
+    height: auto;
+  }
+  .nav-link {
+    &:hover {
+      color: green;
+      text-decoration: none;
+    }
+  }
+}
+.sticky {
+  transition: 0.1s ease;
+  background-color: white;
+  box-shadow: rgb(241, 241, 241) 0px 1px 2px;
+}

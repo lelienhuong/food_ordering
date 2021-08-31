@@ -1,0 +1,27 @@
+.home-container {
+  position: relative;
+  background: {
+    image: url("../../../assets/home/introduction.png");
+    size: cover;
+    position: center;
+  }
+  height: 100vh;
+  .home-introduction--container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: fit-content;
+    transform: translate(-50%, -50%);
+    .home-header--font {
+      font-weight: 700;
+      font-size: 50px;
+      color: rgb(13, 17, 54);
+    }
+    .home-description--font {
+      color: rgb(119, 121, 140);
+      font-size: 19px;
+      margin-top: 1vw;
+      margin-bottom: 4vw;
+    }
+  }
+}

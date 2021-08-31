@@ -1,0 +1,103 @@
+@import "./contact";
+@import "./delivery";
+
+$box-width: 100%/3;
+
+.isActive {
+  border: 1px solid rgb(0, 158, 127);
+  background-color: white !important;
+  transition: all 0.3s ease;
+}
+.checkout-container {
+  p {
+    text-align: initial;
+  }
+  .applied-button {
+    background-color: #009e7f;
+    width: 24%;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+  }
+  background-color: rgb(247, 247, 247);
+  background-size: 100%;
+  .checkout-content--container {
+    width: 70%;
+    display: flex;
+    padding: 2vw;
+    justify-content: space-between;
+    margin: auto;
+    .products-information--container {
+      width: 25%;
+      .products-item {
+        border-bottom: 1px solid rgb(230, 230, 230);
+        // &:nth-last-child(1) {
+        // }
+      }
+    }
+    .box-information {
+      border-radius: 6px;
+      width: calc((100% / 3) - 10px);
+      margin-right: 15px;
+      margin-bottom: 15px;
+      background-color: rgb(247, 247, 247);
+      padding: 1vw;
+      cursor: pointer;
+    }
+    .box-functions-container {
+      position: relative;
+
+      .button-functions {
+        display: none;
+        position: absolute;
+        top: 3%;
+        right: 4%;
+        width: 25%;
+        justify-content: space-between;
+        .button-functions-item {
+          color: white;
+          padding: 2px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: red;
+          border-radius: 50%;
+          width: 1.5vw;
+          height: 1.5vw;
+        }
+      }
+      &:hover {
+        .button-functions {
+          display: flex;
+        }
+      }
+    }
+    .checkout-button--container {
+      width: 100%;
+      background-color: rgb(0, 158, 127);
+      padding: 1vw;
+      color: white;
+      font-weight: 600;
+      border-radius: 6px;
+    }
+    .bill-information--container {
+      width: 70%;
+      .delivery-container .box-information:nth-child(3n) {
+        margin-right: 0px;
+      }
+    }
+    .part-number {
+      background-color: rgb(0, 158, 127);
+      width: 2.5vw;
+      height: 2.5vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      color: white;
+      font-weight: 600;
+      font-size: 1.3rem;
+      margin-right: 1vw;
+    }
+  }
+}

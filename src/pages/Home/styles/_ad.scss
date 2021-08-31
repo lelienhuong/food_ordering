@@ -1,0 +1,29 @@
+.advertisement-container {
+  padding: 4vw;
+  border-bottom: 1px solid rgb(241, 241, 241);
+  .advertisement-image {
+    width: 74%;
+    height: 13em;
+    cursor: pointer;
+  }
+  .rec-pagination {
+    display: none !important;
+  }
+  .rec-arrow-left {
+    background: white;
+    border: none;
+    outline: none;
+    box-shadow: #d3c8c8 0px 3px 6px;
+    color: rgb(0, 158, 127);
+    &:hover {
+      background: white !important;
+      color: rgb(0, 158, 127) !important;
+      border: none !important;
+      outline: none !important;
+      box-shadow: #d3c8c8 0px 3px 6px !important;
+    }
+  }
+  .rec-arrow-right {
+    @extend .rec-arrow-left;
+  }
+}

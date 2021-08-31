@@ -1,0 +1,15 @@
+.item-button {
+    border: 2px solid rgb(247, 247, 247);
+    color: rgb(0, 158, 127);
+    font-weight: 700;
+    border-radius: 18px;
+    font-size: 1vw;
+    padding: 0.3vw;
+    width: 28%;
+    height: auto;
+    &:hover {
+      transition: 0.4s all ease;
+      background-color: rgb(0, 158, 127);
+      color: white;
+    }
+  }

@@ -1,0 +1,23 @@
+.side-navigation-panel-select-option {
+  padding: 1.2rem 1.5rem !important;
+  &:hover {
+    color: rgb(0, 158, 127) !important;
+    background: white !important;
+  }
+}
+.side-navigation-panel-select-option-icon-chevron-down {
+  transform: rotate(-90deg);
+}
+.side-navigation-panel-select-option-icon-chevron-up {
+  transform: rotate(-180deg);
+}
+.side-navigation-panel-select-option-selected {
+  color: rgb(0, 158, 127) !important;
+  background: white !important;
+}
+.sidebar-container {
+  width: 20%;
+  padding-top: 4.5vh;
+  background-color: white;
+  
+}
