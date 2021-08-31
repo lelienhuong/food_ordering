@@ -46,6 +46,7 @@ function Checkout(props) {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         $('.nav-container').addClass('navbar-otherPages')
         $('.checkout-container').css('margin-top', $('.nav-container').outerHeight())
     }, [])
