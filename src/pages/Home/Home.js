@@ -17,6 +17,7 @@ function Home(props) {
     const [modalShow, setModalShow] = useState(true);
     const [isOpenedBill, setOpenBill] = useState(false);
     useEffect(() => {
+        $('.nav-container').removeClass('navbar-otherPages')
         let introAndAdHeight = Math.round($(".home-container").outerHeight() + $(".advertisement-container").outerHeight() + $(".nav-container").outerHeight() + Number.parseFloat($(".sidebar-container").css("padding-top")))
         $(window).on("scroll", function () {
             if (Math.floor($(window).scrollTop()) >= introAndAdHeight) {
