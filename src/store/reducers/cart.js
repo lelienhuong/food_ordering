@@ -1,4 +1,4 @@
-import { ADD_AMOUNT, ADD_ITEM, ADD_VOUCHER, DECREASE_AMOUNT, REMOVE_ITEM, REMOVE_VOUCHER } from "../actions/types";
+import { ADD_AMOUNT, ADD_ITEM, ADD_VOUCHER, DECREASE_AMOUNT, DONE_ORDER, REMOVE_ITEM, REMOVE_VOUCHER } from "../actions/types";
 
 let choosedProducts = JSON.parse(localStorage.getItem('choosedProducts')) || []
 let totalBill = localStorage.getItem('totalBill') || 0
@@ -11,7 +11,7 @@ const updatedNumbers = (state) => {
         totalItems = totalItems + item.amount
         totalMoney = totalMoney + item.info.price * item.amount
     })
-    state.totalBill = totalMoney
+    state.totalBill = Number.parseFloat(totalMoney).toFixed(2)
     state.totalProducts = totalItems
     localStorage.setItem('totalBill', state.totalBill)
     localStorage.setItem('totalProducts', state.totalProducts)
@@ -106,9 +106,23 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
             return state;
         }
         case REMOVE_VOUCHER: {
-            let total = state.totalBill + (state.totalBill * Number.parseInt(state.discount.discount) / (100 - Number.parseInt(state.discount.discount)))
-            state.totalBill = total
+            let totalMoney = 0
+            state.choosedProducts.forEach(item => {
+                totalMoney = totalMoney + item.info.price * item.amount
+            })
+            state.totalBill = totalMoney
             localStorage.setItem('totalBill', state.totalBill)
+            state.discount = {}
+            localStorage.setItem('discount', state.discount)
+            return state;
+        }
+        case DONE_ORDER: {
+            state.choosedProducts = []
+            localStorage.setItem('choosedProducts', state.choosedProducts)
+            state.totalBill = 0
+            localStorage.setItem('totalBill', state.totalBill)
+            state.totalProducts = 0
+            localStorage.setItem('totalProducts', state.totalProducts)
             state.discount = {}
             localStorage.setItem('discount', state.discount)
             return state;

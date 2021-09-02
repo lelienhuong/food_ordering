@@ -4,7 +4,7 @@ import $ from 'jquery'
 import ContactModal from './ContactModal';
 import DeliveryModal from './DeliveryModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_VOUCHER, REMOVE_ADDRESS, REMOVE_CONTACT, REMOVE_VOUCHER, UPDATE_CONTACT } from '../../store/actions/types';
+import { ADD_VOUCHER, DONE_ORDER, REMOVE_ADDRESS, REMOVE_CONTACT, REMOVE_VOUCHER, UPDATE_CONTACT } from '../../store/actions/types';
 import styled from 'styled-components';
 import offerData from '../Offer/offer.json'
 import { useHistory } from 'react-router-dom';
@@ -221,7 +221,10 @@ function Checkout(props) {
                             (<></>)}
 
                         <p style={{ color: "rgb(119, 121, 140)" }} class="text-sm mt-4 mb-4">By making this purchase you agree to <span style={{ color: "red" }}>ourterms and conditions.</span></p>
-                        <button onClick={() => history.push('/')} class="checkout-button--container">ORDER NOW</button>
+                        <button onClick={() => {
+                            dispatch({ type: DONE_ORDER })
+                            history.push('/')
+                        }} class="checkout-button--container">ORDER NOW</button>
                     </div>
                 </div>
                 <div class="products-information--container" style={{ color: "rgb(119, 121, 140)" }}>
@@ -245,7 +248,7 @@ function Checkout(props) {
                         <p>Sub Total</p>
                         {
                             discount.discount ? (
-                                <p>${totalBill + totalBill * discount.discount / (100 - discount.discount)}</p>
+                                <p>${Number.parseFloat(totalBill) + Number.parseFloat(totalBill) * discount.discount / (100 - discount.discount)}</p>
 
                             ) : (
                                 <p>${totalBill}</p>
@@ -260,7 +263,7 @@ function Checkout(props) {
                         <p>Discount</p>
                         {
                             discount.discount ? (
-                                <p>${totalBill * discount.discount / (100 - discount.discount)}</p>
+                                <p>${Number.parseFloat(totalBill * discount.discount / (100 - discount.discount)).toFixed(2)}</p>
 
                             ) : (
                                 <p>$0</p>

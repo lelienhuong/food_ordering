@@ -135,7 +135,10 @@ function BillInformation(props) {
                             </p>
                         ) :
                             (<></>)}
-                        <button onClick={() => history.push('/checkout')} class="flex w-full justify-between items-center  p-px checkout-button">
+                        <button onClick={() => {
+                            setOpenBill(false)
+                            history.push('/checkout')
+                        }} class="flex w-full justify-between items-center  p-px checkout-button">
                             <p class="ml-4">Checkout</p>
                             <div class="flex justify-center items-center totalMoney-button--container">
                                 ${totalBill}

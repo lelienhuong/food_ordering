@@ -5,6 +5,7 @@ export const ADD_VOUCHER = "ADD_VOUCHER"
 export const REMOVE_VOUCHER = "REMOVE_VOUCHER"
 export const DECREASE_AMOUNT = "DECREASE_AMOUNT"
 export const REMOVE_ITEM = "REMOVE_ITEM"
+export const DONE_ORDER = "DONE_ORDER"
 
 // Address
 export const ADD_ADDRESS = "ADD_ADDRESS"
