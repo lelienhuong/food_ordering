@@ -49,8 +49,8 @@ function Introduction(props) {
                     <form onSubmit={(e) => handleSearchSubmit(e)} class="flex w-full h-full">
                         <div class="flex justify-center items-center" style={{ width: "20%", margin: "5px", backgroundColor: "rgb(247, 247, 247)", color: "rgb(0, 158, 127)", fontWeight: "700", borderRadius: "6px" }}>Grocery</div>
                         <SearchInput name="searchKey" onChange={(e) => handleSearchInput(e)} placeholder="Search your products from here" />
+                        <button class="h-full" style={{ backgroundColor: "rgb(0, 158, 127)", width: "20%", color: "white", fontWeight: "700", borderTopRightRadius: "6px", borderBottomRightRadius: "6px" }}><i class="bi bi-search" style={{ marginRight: "5px" }}></i> Search</button>
                     </form>
-                    <button class="h-full" style={{ backgroundColor: "rgb(0, 158, 127)", width: "20%", color: "white", fontWeight: "700", borderTopRightRadius: "6px", borderBottomRightRadius: "6px" }}><i class="bi bi-search" style={{ marginRight: "5px" }}></i> Search</button>
                 </div>
             </div>
         </div>
