@@ -1,2 +1,6 @@
-.App{
+.App {
+  scroll-behavior: smooth;
+  .hidden {
+    display: none;
+  }
 }

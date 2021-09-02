@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './styles/index.scss'
 import Introduction from './Introduction';
 import Advertisement from './Advertisement';
@@ -12,10 +12,10 @@ import LayoutContext from '../../context/LayoutContext';
 import Help from '../Help/Help';
 import BillInformation from './BillInformation';
 import Offer from '../Offer/Offer';
+import itemsData from './items.json'
 
 function Home(props) {
-    const [modalShow, setModalShow] = useState(true);
-    const [isOpenedBill, setOpenBill] = useState(false);
+    let { isOpenedBill, setOpenBill } = useContext(LayoutContext)
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
@@ -44,42 +44,29 @@ function Home(props) {
     }, [isOpenedBill])
 
     return (
-        <LayoutContext.Provider
-            value={{
-                modalShow: modalShow,
-                setModalShow: (props) => setModalShow(props),
-                isOpenedBill: isOpenedBill,
-                setOpenBill: (props) => setOpenBill(props)
-            }}
-        >
-            <div>
-                <LayoutContext.Consumer>
-                    {() => (
-                        <>
-                            <Switch>
-                                <Route
-                                    exact
-                                    path="/grocery/product/:name"
-                                    component={ItemDetail}
-                                />
-                            </Switch>
-                            <Introduction />
-                            <Advertisement />
-                            <BillInformation class={isOpenedBill ? "isOpen" : ""} />
-                            <Cart />
+        <div>
+            <Switch>
+                <Route
+                    exact
+                    path="/grocery/product/:name"
+                    component={ItemDetail}
+                />
+            </Switch>
+            <Introduction />
+            <Advertisement />
+            <BillInformation class={isOpenedBill ? "isOpen" : ""} />
+            <Cart />
 
-                            <div id="content" class="flex">
-                                <div class="flex home-content--container">
-                                    <Sidebar />
-                                    <ListItems />
-                                </div>
-                            </div>
-                        </>
-                    )}
-                </LayoutContext.Consumer>
+            <div id="content" class="flex">
+                <div class="flex home-content--container">
+                    <Sidebar />
+                    <ListItems />
+                </div>
             </div>
-        </LayoutContext.Provider >
+        </div>
     );
 }
 
 export default Home;
+// crawl data
+// var mang=[]; for(var i=0;i<20;i++){ mang.push({"title": document.getElementsByClassName('product-title').item(i).innerText,link: document.getElementsByClassName('product-image').item(i).src,unit:document.getElementsByClassName('product-weight').item(i).innerText,price:document.getElementsByClassName('product-price').item(i).innerText,description:document.getElementsByClassName('quick-viewstyle__ProductDescription-d67ysb-12 kOEjVM').item(i)})} console.log(JSON.stringify(mang))
