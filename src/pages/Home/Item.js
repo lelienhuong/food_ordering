@@ -39,9 +39,11 @@ function Item(props) {
     }
     return (
         <div className="item-container">
-            <img onClick={() => getProductDetail()} className="item-image" src={props.item.link} />
+            <div style={{ height: "20vw" }}>
+                <img onClick={() => getProductDetail()} className="item-image" src={props.item.link} />
+            </div>
             <div onClick={() => getProductDetail()}>
-                <p><strong>{props.item.title}</strong></p>
+                <p style={{ color: "rgb(13, 17, 54)", fontWeight: "600" }}>{props.item.title}</p>
                 <p style={{ color: "rgb(119, 121, 140)" }}>{props.item.unit}</p>
             </div>
             <div class="flex justify-between items-center" style={{ marginTop: "2vw" }}>
@@ -61,7 +63,7 @@ function Item(props) {
                         )
                 }
             </div>
-        </div>
+        </div >
     );
 }
 

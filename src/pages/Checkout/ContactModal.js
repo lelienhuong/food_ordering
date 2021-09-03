@@ -40,7 +40,7 @@ function ContactModal(props) {
             >
                 <form onSubmit={() => feature === "edit" ? handleEdited() : handleCreate()} class="contact-container p-4">
                     <p class="text-xl font-bold">{feature === "edit" ? "Edit Contact" : "Add New Contact"}</p>
-                    <input required type="number" name="phone" placeholder="Enter a phone number" onChange={(e) => handleInput(e)} defaultValue={feature === "edit" ? phone : ''} class="w-full h-12 input-name p-4 mb-6 mt-3" />
+                    <input required name="phone" placeholder="Enter a phone number" onChange={(e) => handleInput(e)} defaultValue={feature === "edit" ? phone : ''} class="w-full h-12 input-name p-4 mb-6 mt-3" />
                     <button class="contact-button mt-3">Save Contact</button>
                 </form>
             </MyVerticallyCenteredModal>

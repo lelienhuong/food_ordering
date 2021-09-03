@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import LayoutContext from '../../context/LayoutContext';
 import itemsData from './items.json'
-import $ from 'jquery'
+import $, { type } from 'jquery'
 
 const SearchInput = styled.input`
 width:inherit;
@@ -38,7 +38,9 @@ function Introduction(props) {
         });
     }
     const handleSearchInput = (e) => {
-        setKey(e.target.value)
+        let search = e.target.value
+        search = search.trim()
+        setKey(search)
     }
     return (
         <div className="home-container">
