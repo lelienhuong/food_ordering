@@ -49,9 +49,17 @@ function Checkout(props) {
         window.scrollTo(0, 0);
         $('.nav-container').addClass('navbar-otherPages')
         $('.checkout-container').css('margin-top', $('.nav-container').outerHeight())
-        $(".nav-container").css("padding","1.7vw 2vw");
+        $(".nav-container").css("padding", "1.7vw 2vw");
     }, [])
-
+    useEffect(() => {
+        $(window).on("scroll", function () {
+            if ($(window).scrollTop() > 400) {
+                $(".nav-search--container").addClass("hidden");
+            } else {
+                $(".nav-search--container").addClass("hidden");
+            }
+        });
+    })
     const [isDeliveryAddress, setDeliveryAddress] = useState({ value: false, feature: "" })
     let [isChoosedItem, setItem] = useState({})
     const [isContact, setContact] = useState({ value: false, feature: "" })

@@ -20,6 +20,7 @@ function BillInformation(props) {
     let totalBill = useSelector(state => state.itemsInCart.totalBill)
     let totalProducts = useSelector(state => state.itemsInCart.totalProducts)
     let choosedProducts = useSelector(state => state.itemsInCart.choosedProducts)
+    let discount = useSelector(state => state.itemsInCart.discount)
     let { isOpenedBill, setOpenBill } = useContext(LayoutContext)
     let [isVoucherAvailable, setVoucherAvailable] = useState({})
     let [isAppliedCode, setApplied] = useState(false)
@@ -56,10 +57,10 @@ function BillInformation(props) {
         setVoucherCode(e.target.value)
     }
     const appliedVoucherFunction = () => {
-        if (isAppliedCode) {
-            if (isVoucherAvailable.value === 'available') {
+        if (isAppliedCode || discount.discount) {
+            if (isVoucherAvailable.value === 'available' || discount.discount) {
                 return (
-                    <p class="text-center" style={{ color: "rgb(119, 121, 140)" }}>Coupon Applied <span style={{ color: "rgb(0, 158, 127)", fontWeight: "600" }}>{voucherCode}</span></p>
+                    <p class="text-center" style={{ color: "rgb(119, 121, 140)" }}>Coupon Applied <span style={{ color: "rgb(0, 158, 127)", fontWeight: "600" }}>{voucherCode || discount.code}</span></p>
                 )
             }
             return (

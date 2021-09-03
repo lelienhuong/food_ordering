@@ -3,7 +3,7 @@ import { ADD_AMOUNT, ADD_ITEM, ADD_VOUCHER, DECREASE_AMOUNT, DONE_ORDER, REMOVE_
 let choosedProducts = JSON.parse(localStorage.getItem('choosedProducts')) || []
 let totalBill = localStorage.getItem('totalBill') || 0
 let totalProducts = localStorage.getItem('totalProducts') || 0
-let discount = localStorage.getItem('discount') || {}
+let discount = JSON.parse(localStorage.getItem('discount')) || {}
 const updatedNumbers = (state) => {
     let totalItems = 0
     let totalMoney = 0
@@ -95,13 +95,13 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
         case ADD_VOUCHER: {
             let totalMoney = 0
             state.discount = action.payload.data
-            localStorage.setItem('discount', state.discount)
+            localStorage.setItem('discount', JSON.stringify(state.discount))
             let discount = action.payload.data.discount;
             state.choosedProducts.forEach(item => {
                 totalMoney = totalMoney + item.info.price * item.amount
             })
             totalMoney = totalMoney * (100 - discount) / 100
-            state.totalBill = totalMoney
+            state.totalBill = Number.parseFloat(totalMoney).toFixed(2)
             localStorage.setItem('totalBill', state.totalBill)
             return state;
         }
@@ -113,7 +113,7 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
             state.totalBill = totalMoney
             localStorage.setItem('totalBill', state.totalBill)
             state.discount = {}
-            localStorage.setItem('discount', state.discount)
+            localStorage.setItem('discount', JSON.stringify(state.discount))
             return state;
         }
         case DONE_ORDER: {
