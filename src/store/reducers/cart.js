@@ -118,13 +118,13 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
         }
         case DONE_ORDER: {
             state.choosedProducts = []
-            localStorage.setItem('choosedProducts', state.choosedProducts)
+            localStorage.removeItem('choosedProducts')
             state.totalBill = 0
-            localStorage.setItem('totalBill', state.totalBill)
+            localStorage.removeItem('totalBill')
             state.totalProducts = 0
-            localStorage.setItem('totalProducts', state.totalProducts)
+            localStorage.removeItem('totalProducts')
             state.discount = {}
-            localStorage.setItem('discount', state.discount)
+            localStorage.removeItem('discount')
             return state;
         }
         default:
