@@ -12,7 +12,7 @@ function Offer(props) {
     useEffect(() => {
         $('.nav-container').addClass('navbar-otherPages')
         $('.offer-container').css('margin-top', $('.nav-container').outerHeight())
-        $(".nav-container").css("padding","1.7vw 2vw");
+        // $(".nav-container").css("padding","1.7vw 2vw");
     }, [])
     useEffect(() => {
         if (!isOpenedBill) {
