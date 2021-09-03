@@ -49,6 +49,7 @@ function Checkout(props) {
         window.scrollTo(0, 0);
         $('.nav-container').addClass('navbar-otherPages')
         $('.checkout-container').css('margin-top', $('.nav-container').outerHeight())
+        $(".nav-container").css("padding","1.7vw 2vw");
     }, [])
 
     const [isDeliveryAddress, setDeliveryAddress] = useState({ value: false, feature: "" })

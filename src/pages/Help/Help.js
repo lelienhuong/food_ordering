@@ -8,6 +8,7 @@ function Help(props) {
         $('.nav-container').addClass('navbar-otherPages')
         $('.help-container').css('margin-top', $('.nav-container').outerHeight())
         $('.help-container').css('height', `${$(window).outerHeight() - $('.nav-container').outerHeight()}`)
+        $(".nav-container").css("padding","1.7vw 2vw");
     }, [])
     return (
         <div class="help-container">

@@ -41,17 +41,7 @@ function Navbar(props) {
     const handleSearchInput = (e) => {
         setKey(e.target.value)
     }
-    useEffect(() => {
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop() > 400) {
-                $(".nav-container").addClass("sticky");
-                $(".nav-search--container").removeClass("hidden");
-            } else {
-                $(".nav-container").removeClass("sticky");
-                $(".nav-search--container").addClass("hidden");
-            }
-        });
-    })
+
     return (
         <div className="nav-container">
             <a href="/">
