@@ -256,7 +256,7 @@ function Checkout(props) {
                         <p>Sub Total</p>
                         {
                             discount.discount ? (
-                                <p>${Number.parseFloat(totalBill) + Number.parseFloat(totalBill) * discount.discount / (100 - discount.discount)}</p>
+                                <p>${Number.parseFloat(Number.parseFloat(totalBill) + Number.parseFloat(totalBill) * discount.discount / (100 - discount.discount)).toFixed(2)}</p>
 
                             ) : (
                                 <p>${totalBill}</p>
