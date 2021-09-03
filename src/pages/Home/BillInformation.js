@@ -114,7 +114,7 @@ function BillInformation(props) {
                                         <p class="text-xs" style={{ color: "rgb(119, 121, 140)" }}>{item.amount} X {item.info.unit}</p>
                                     </div>
                                     <div class="col-2 flex justify-center items-center">
-                                        <p style={{ fontWeight: "600" }}>${item.amount * item.info.price}</p>
+                                        <p style={{ fontWeight: "600" }}>${Number.parseFloat(item.amount * item.info.price).toFixed(2)}</p>
                                     </div>
                                     <div class="flex justify-center items-center">
                                         <button style={{ color: "rgba(0, 0, 0, 0.25)" }} onClick={() => handleRemovedItem(item)}>
