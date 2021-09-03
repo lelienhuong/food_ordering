@@ -39,7 +39,9 @@ function Navbar(props) {
         });
     }
     const handleSearchInput = (e) => {
-        setKey(e.target.value)
+        let search = e.target.value
+        search = search.trim()
+        setKey(search)
     }
 
     return (
