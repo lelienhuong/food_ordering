@@ -228,7 +228,7 @@ function Checkout(props) {
                         ) :
                             (<></>)}
 
-                        <p style={{ color: "rgb(119, 121, 140)" }} class="text-sm mt-4 mb-4">By making this purchase you agree to <span style={{ color: "red" }}>ourterms and conditions.</span></p>
+                        <p style={{ color: "rgb(119, 121, 140)" }} class="text-sm mt-4 mb-4">By making this purchase you agree to our <span style={{ color: "red" }}>terms and conditions.</span></p>
                         <button onClick={() => {
                             dispatch({ type: DONE_ORDER })
                             history.push('/')
