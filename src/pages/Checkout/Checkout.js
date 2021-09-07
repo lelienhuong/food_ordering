@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import './styles/index.scss'
 import $ from 'jquery'
 import ContactModal from './ContactModal';
@@ -31,6 +31,12 @@ const timeData = [
     { name: "5pm-8pm", time: "5.00 PM - 8.00 PM" },
     { name: "Next Day", time: "Next Day" }]
 function Checkout(props) {
+    let [width, setWidth] = useState(window.innerWidth)
+    useLayoutEffect(() => {
+        window.addEventListener('resize', () => {
+            setWidth(window.innerWidth)
+        })
+    })
     let [isVoucherAvailable, setVoucherAvailable] = useState({})
     let [isAppliedCode, setApplied] = useState(false)
     let [voucherCode, setVoucherCode] = useState('')
@@ -48,8 +54,9 @@ function Checkout(props) {
     useEffect(() => {
         window.scrollTo(0, 0);
         $('.nav-container').addClass('navbar-otherPages')
+        $('.checkout-container').css('margin-top', $('.navContainer').outerHeight())
         $('.checkout-container').css('margin-top', $('.nav-container').outerHeight())
-    }, [])
+    }, [width])
     useEffect(() => {
         $(window).on("scroll", function () {
             if ($(window).scrollTop() > 400) {

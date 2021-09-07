@@ -1,62 +1,28 @@
-import React, { useContext, useEffect, useState } from 'react';
-import './navbar.scss'
-import itemsData from '../../pages/Home/items.json'
-import $ from 'jquery'
-import styled from 'styled-components';
-import LayoutContext from '../../context/LayoutContext';
+import React, { useLayoutEffect, useState } from 'react';
+import Pc from './PC/Nav'
+import Mobile from './Mobile/Nav'
+import Tablet from './Tablet/Nav'
 
-const HeaderLink = styled.a`
-    text-decoration: none;
-    padding: 1rem;
-    color: black;
-    font-weight: 600;
-    font-family: Poppins;
-    &:hover{
-        color: rgb(0, 158, 127);
-        text-decoration: none;
-    }
-    `;
 function Navbar(props) {
-    let [searchKey, setKey] = useState('')
-    let { setProductsData } = useContext(LayoutContext)
-    const handleSearchSubmit = (e) => {
-        let introAndAdHeight = Math.round($(".home-container").outerHeight() + $(".advertisement-container").outerHeight() - $(".nav-container").outerHeight())
-        e.preventDefault()
-        if (searchKey.length === 0) {
-            setProductsData(itemsData[0].fruitsAndVegetable)
-            window.scrollTo({
-                top: introAndAdHeight,
-                left: 0,
-                behavior: 'smooth'
-            });
-            return
+    const setLayout = (width) => {
+        if (width < 576) {
+            return <Mobile />
         }
-        setProductsData(itemsData[0].fruitsAndVegetable.filter(item => item.title.indexOf(searchKey) !== -1 || item.title.toLowerCase().indexOf(searchKey) !== -1))
-        window.scrollTo({
-            top: introAndAdHeight,
-            left: 0,
-            behavior: 'smooth'
-        });
+        if (width < 992) {
+            return <Tablet />
+        }
+        return <Pc />
     }
-    const handleSearchInput = (e) => {
-        let search = e.target.value
-        search = search.trim()
-        setKey(search)
-    }
-
+    let [width, setWidth] = useState(window.innerWidth)
+    useLayoutEffect(() => {
+        setWidth(window.innerWidth)
+        window.addEventListener('resize', () => {
+            setWidth(window.innerWidth)
+        })
+    })
     return (
-        <div className="nav-container">
-            <a href="/">
-                <img className="nav-logo" src="/image/logo.svg" />
-            </a>
-            <form onSubmit={(e) => handleSearchSubmit(e)} class="nav-search--container flex items-center justify-between hidden">
-                <i class="bi bi-search"></i>
-                <input name="searchKey" onChange={(e) => handleSearchInput(e)} class="nav-search-input" placeholder="Search your products from here" />
-            </form>
-            <div>
-                <HeaderLink href="/offer">Offer</HeaderLink>
-                <HeaderLink style={{ paddingRight: 0 }} href="/help"><i class="bi bi-question-circle-fill" style={{ marginRight: "8px" }}></i>Need Help</HeaderLink>
-            </div>
+        <div>
+            {setLayout(width)}
         </div>
     );
 }

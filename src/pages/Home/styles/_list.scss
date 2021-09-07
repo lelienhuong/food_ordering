@@ -49,10 +49,13 @@
     p {
       text-align: initial;
     }
-    .item-image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    .item-image--container {
+      height: 20vw;
+      .item-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
     }
     .item-button {
       border: 2px solid rgb(247, 247, 247);

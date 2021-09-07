@@ -68,5 +68,10 @@
         "code": "DISCOUNT10",
         "discount": "10",
         "image": "https://s3.amazonaws.com/redqteam.com/pickbazar/gift-card-2.png"
+    },
+    {
+        "code": "CYBERMONDAY10",
+        "discount": "10",
+        "image": "https://s3.amazonaws.com/redqteam.com/pickbazar/gift-card-1.png"
     }
 ]

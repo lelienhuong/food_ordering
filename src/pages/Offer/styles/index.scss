@@ -5,8 +5,26 @@
   display: flex;
   flex-wrap: wrap;
 }
+.offerItem-container {
+  width: 25%;
+  flex: 0 0 25%;
+  padding: 1vw;
+}
 .navbar-otherPages {
   transition: 0.1s ease;
   background-color: white;
   box-shadow: rgb(241, 241, 241) 0px 1px 2px;
+}
+
+@media (max-width: 992px) {
+  .offer-container {
+    .offerItem-container {
+      width: 50%;
+      flex: 0 0 50%;
+    }
+  }
+}
+
+//mobile
+@media (max-width: 575.98px) {
 }

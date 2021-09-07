@@ -83,10 +83,10 @@ function BillInformation(props) {
         <div class="bill-container">
             <div class="bill-content">
                 <div class="bill-content--header">
-                    <div class="flex justify-between" >
+                    <div class="flex justify-between w-full" >
                         <div style={{ color: "rgb(0, 158, 127)", fontWeight: 600, paddingRight: "10px" }} class="flex items-center justify-center"><i class="bi bi-bag-check-fill m-1"></i> {totalProducts} Items</div>
                         <button style={{ color: "rgba(0, 0, 0, 0.25)" }} onClick={() => handleCloseBill()}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="10.003" height="10" viewBox="0 0 10.003 10"><path data-name="_ionicons_svg_ios-close (5)" d="M166.686,165.55l3.573-3.573a.837.837,0,0,0-1.184-1.184l-3.573,3.573-3.573-3.573a.837.837,0,1,0-1.184,1.184l3.573,3.573-3.573,3.573a.837.837,0,0,0,1.184,1.184l3.573-3.573,3.573,3.573a.837.837,0,0,0,1.184-1.184Z" transform="translate(-160.5 -160.55)" fill="currentColor"></path></svg>
+                            <svg className="bill-content-close--button" xmlns="http://www.w3.org/2000/svg" width="10.003" height="10" viewBox="0 0 10.003 10"><path data-name="_ionicons_svg_ios-close (5)" d="M166.686,165.55l3.573-3.573a.837.837,0,0,0-1.184-1.184l-3.573,3.573-3.573-3.573a.837.837,0,1,0-1.184,1.184l3.573,3.573-3.573,3.573a.837.837,0,0,0,1.184,1.184l3.573-3.573,3.573,3.573a.837.837,0,0,0,1.184-1.184Z" transform="translate(-160.5 -160.55)" fill="currentColor"></path></svg>
                         </button>
                     </div>
                 </div>
@@ -94,7 +94,7 @@ function BillInformation(props) {
                     <div class="bill-content--products">
                         {choosedProducts.map((item) => {
                             return (
-                                <div class="flex" style={{ padding: "1vw 2vw", borderBottom: "1px solid rgb(247, 247, 247)" }}>
+                                <div class="flex bill-content-item">
                                     <div class="col-1 p-0 adjustedAmount-button">
                                         <div class="flex flex-col h-full items-center justify-around" style={{ padding: "10px" }}>
                                             <button onClick={() => handleIncreasingAmount(item)}>
@@ -126,7 +126,7 @@ function BillInformation(props) {
                             )
                         })}
                     </div>
-                    <div class="p-3 flex flex-column justify-around" style={{ height: "30%" }}>
+                    <div class="p-3 flex flex-column justify-around bill-content--buttonGroup" style={{ height: "30%" }}>
                         {
                             appliedVoucherFunction()
                         }

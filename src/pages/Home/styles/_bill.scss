@@ -18,6 +18,9 @@
   .bill-content--header {
     padding: 1vw 2vw;
     height: 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid rgb(247, 247, 247);
   }
   .bill-content--body {
@@ -62,6 +65,10 @@
     .adjustedAmount-button {
       background-color: #f7f7f7;
       border-radius: 2vw;
+    }
+    .bill-content-item {
+      padding: 1vw 2.5vw;
+      border-bottom: 1px solid rgb(247, 247, 247);
     }
   }
 }

@@ -101,3 +101,26 @@ $box-width: 100%/3;
     }
   }
 }
+
+@media (max-width: 992px) {
+  .checkout-container {
+    .checkout-content--container {
+      width: 100%;
+    }
+  }
+}
+
+//mobile
+@media (max-width: 575.98px) {
+  .checkout-content--container {
+    flex-direction: column-reverse;
+    .bill-information--container {
+      width: 100% !important;
+    }
+    .products-information--container {
+      background-color: white;
+      width: 100% !important;
+      margin-bottom: 2vw;
+    }
+  }
+}

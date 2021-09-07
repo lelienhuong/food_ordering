@@ -7,10 +7,11 @@ import $ from 'jquery';
 function Cart(props) {
     let totalBill = useSelector(state => state.itemsInCart.totalBill)
     let totalProducts = useSelector(state => state.itemsInCart.totalProducts)
-    let { isOpenedBill, setOpenBill } = useContext(LayoutContext)
+    let { isOpenedBill, setOpenBill, setSidebarOpen } = useContext(LayoutContext)
 
     const handleClosedCart = () => {
         setOpenBill(true)
+        setSidebarOpen(false)
     }
     return (
         <div className="cart-container" onClick={() => handleClosedCart()}>

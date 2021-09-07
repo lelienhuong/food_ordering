@@ -17,7 +17,8 @@ import itemsData from './pages/Home/items.json'
 import LayoutContext from './context/LayoutContext';
 function App() {
   const [modalShow, setModalShow] = useState(true);
-  const [isOpenedBill, setOpenBill] = useState(false);
+  let [isOpenedBill, setOpenBill] = useState(false);
+  let [isSidebarOpen, setSidebarOpen] = React.useState(false)
   let [productsData, setProductsData] = useState(itemsData[0].fruitsAndVegetable)
   return (
     <LayoutContext.Provider
@@ -27,14 +28,16 @@ function App() {
         isOpenedBill: isOpenedBill,
         setOpenBill: (props) => setOpenBill(props),
         productsData: productsData,
-        setProductsData: (props) => setProductsData(props)
+        setProductsData: (props) => setProductsData(props),
+        isSidebarOpen: isSidebarOpen,
+        setSidebarOpen: (props) => setSidebarOpen(props)
       }}
     >
       <div className="App">
         <LayoutContext.Consumer>
           {() => (<>
-            <Navbar id="navbar" />
             <Router>
+              <Navbar id="navbar" />
               <Switch>
                 <Route
                   exact

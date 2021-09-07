@@ -39,7 +39,7 @@ function Item(props) {
     }
     return (
         <div className="item-container">
-            <div style={{ height: "20vw" }}>
+            <div className="item-image--container">
                 <img onClick={() => getProductDetail()} className="item-image" src={props.item.link} />
             </div>
             <div onClick={() => getProductDetail()}>

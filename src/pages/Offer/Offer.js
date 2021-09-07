@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useState } from 'react';
 import './styles/index.scss'
 import $ from 'jquery'
 import offerData from './offer.json'
@@ -9,11 +9,19 @@ import LayoutContext from '../../context/LayoutContext';
 import BillInformation from '../Home/BillInformation';
 function Offer(props) {
     let { isOpenedBill, setOpenBill } = useContext(LayoutContext)
+    let [width, setWidth] = useState(window.innerWidth)
+    useLayoutEffect(() => {
+        // setWidth(window.innerWidth)
+        window.addEventListener('resize', () => {
+            setWidth(window.innerWidth)
+        })
+    })
     useEffect(() => {
         $('.nav-container').addClass('navbar-otherPages')
         $('.offer-container').css('margin-top', $('.nav-container').outerHeight())
+        $('.offer-container').css('margin-top', $('.navContainer').outerHeight())
         // $(".nav-container").css("padding","1.7vw 2vw");
-    }, [])
+    }, [width])
     useEffect(() => {
         if (!isOpenedBill) {
             $('.bill-content').removeClass('isShowContent')

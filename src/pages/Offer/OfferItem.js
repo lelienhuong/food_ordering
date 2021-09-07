@@ -16,7 +16,7 @@ function OfferItem(props) {
         $temp.remove();
     }
     return (
-        <div class="mb-4" style={{ width: "25%", flex: "0 0 25%", padding: "1vw" }} >
+        <div class="mb-4 offerItem-container">
             <img style={{ height: "80%" }} class="w-full" src={item.image} />
             <div class="flex rounded justify-between items-center p-3 bg-white m-auto" style={{ width: "90%", height: "20%" }}>
                 <p>{item.code}</p>
