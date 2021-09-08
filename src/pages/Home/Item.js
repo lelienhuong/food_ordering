@@ -42,7 +42,7 @@ function Item(props) {
             <div className="item-image--container">
                 <img onClick={() => getProductDetail()} className="item-image" src={props.item.link} />
             </div>
-            <div onClick={() => getProductDetail()}>
+            <div className="item-info-container" onClick={() => getProductDetail()}>
                 <p style={{ color: "rgb(13, 17, 54)", fontWeight: "600" }}>{props.item.title}</p>
                 <p style={{ color: "rgb(119, 121, 140)" }}>{props.item.unit}</p>
             </div>

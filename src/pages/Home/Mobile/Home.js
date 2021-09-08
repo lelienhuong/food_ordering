@@ -75,7 +75,7 @@ function Home(props) {
         <div className="homeContainer">
             <div class="home-intro--container" style={{ padding: "2vw 3vw" }}>
                 <div class="flex items-center justify-between">
-                    <p class="text-lg">Groceries Delivered in 90 Minute</p>
+                    <p class="text-sm">Groceries Delivered in 90 Minute</p>
                     <p class="WordStyle flex items-center" >Grocery</p>
                 </div>
                 <div class="w-full text-sm">
@@ -89,9 +89,8 @@ function Home(props) {
             <div>
                 <button onClick={() => {
                     setOpenBill(true)
-                    // history.push('/checkout')
                 }} class="flex w-full justify-between items-center  p-px checkout-button">
-                    <p class="ml-4">${totalProducts} {totalProducts > 1 ? "Items" : "Item"}</p>
+                    <p class="ml-4">{totalProducts} {totalProducts > 1 ? "Items" : "Item"}</p>
                     <div class="flex justify-center items-center totalMoney-button--container">
                         ${totalBill}
                     </div>
@@ -101,7 +100,6 @@ function Home(props) {
                 show={isOpenedBill}
                 onHide={() => setOpenBill(false)}
             >
-                <button onClick={() => setOpenBill(false)} class="buttonCloseModalSideBar mt-3"><i style={{ fontSize: "50%" }} class="bi bi-x-lg"></i></button>
                 <BillInformation class="isOpen" />
             </Modal>
             {/* <Cart /> */}

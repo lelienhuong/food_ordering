@@ -54,6 +54,26 @@
 }
 .homeContainer {
   color: rgb(119, 121, 140);
+  .checkout-button {
+    position: fixed;
+    bottom: 2vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(0, 158, 127);
+    color: white;
+    font-weight: 700;
+    border-radius: 2vw;
+    padding: 0.2vw;
+    height: 5vh;
+    width: 90%;
+    .totalMoney-button--container {
+      background-color: white;
+      color: rgb(0, 158, 127);
+      width: 25%;
+      height: 100%;
+      border-radius: 2vw;
+    }
+  }
   .WordStyle {
     color: rgb(0, 158, 127);
     font-weight: 700;
@@ -141,26 +161,37 @@
   .totalMoney-button--container {
     border-radius: 5vw !important;
   }
-}
-
-.checkout-button {
-  position: fixed;
-  bottom: 2vh;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgb(0, 158, 127);
-  color: white;
-  font-weight: 700;
-  border-radius: 2vw;
-  padding: 0.2vw;
-  height: 5vh;
-  width: 90%;
-  .totalMoney-button--container {
-    background-color: white;
-    color: rgb(0, 158, 127);
-    width: 25%;
-    height: 100%;
-    border-radius: 2vw;
+  .itemDetail-container {
+    .item-button {
+      height: 5vw;
+      width: 40%;
+      font-size: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  .itemDetail-modal-content {
+    font-size: 0.5rem;
+    padding: 0.5rem;
+    p {
+      strong {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .listItem-content--container {
+    .listItem-button {
+      margin-bottom: 15vh;
+    }
+  }
+  .homeContainer {
+    .listItem-container {
+      margin-bottom: 10vh;
+    }
+    .advertisement-image {
+      height: 7em !important;
+    }
   }
 }
 
@@ -168,6 +199,10 @@
 @media (max-width: 575.98px) {
   .item-container {
     flex: 0 0 50% !important;
+    .item-info-container {
+      height: 20vw !important;
+      margin-bottom: 5vw !important;
+    }
     .item-button {
       height: 10vw !important;
       font-size: 90% !important;
@@ -181,21 +216,38 @@
       font-size: 1.2em;
     }
   }
-  .bill-container{
+  .bill-container {
     position: unset;
     box-shadow: none;
     width: 100% !important;
-    .checkout-button{
-      height: 3vh !important;
+    .bill-content--header {
+      height: auto;
     }
-    .bill-content-close--button{
+    .checkout-button {
+      height: 5vh !important;
+    }
+    .bill-content-close--button {
       display: none;
     }
-    .bill-content--buttonGroup{
-      height: 18vh !important;
+    .bill-content--buttonGroup {
+      height: auto !important;
+      form {
+        height: auto !important;
+      }
     }
-    .bill-content-item{
+    .bill-content-item {
       padding: 1vw 7vw !important;
     }
+    .bill-content--body {
+      // justify-content: unset;
+    }
+    .bill-content--products {
+      height: 19rem !important;
+    }
+  }
+  .part-number {
+    width: 8.5vw !important;
+    height: 8.5vw !important;
+    margin-right: 2.5vw !important;
   }
 }

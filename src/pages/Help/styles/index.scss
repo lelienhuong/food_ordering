@@ -52,4 +52,15 @@
 
 //mobile
 @media (max-width: 575.98px) {
+  .questionItem-container{
+    .question-container{
+      height: fit-content;
+    }
+    .question-readed{
+      height: 35vw !important;
+    }
+  }
+  .answer-container{
+    font-size: 90%;
+  }
 }

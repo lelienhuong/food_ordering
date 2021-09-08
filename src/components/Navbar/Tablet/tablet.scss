@@ -1,8 +1,24 @@
+.ReactModal__Overlay {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
 .navContainer {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  // z-index: 1000;
   width: 100%;
   padding: 2.5vw;
   display: flex;
@@ -61,6 +77,6 @@
 //mobile
 @media (max-width: 575.98px) {
   .isOpen {
-    width: 50% !important;
+    width: 60% !important;
   }
 }

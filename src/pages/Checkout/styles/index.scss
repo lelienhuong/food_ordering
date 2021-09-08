@@ -9,6 +9,11 @@ $box-width: 100%/3;
   transition: all 0.3s ease;
 }
 .checkout-container {
+  .checkout-item-button {
+    color: rgb(0, 158, 127);
+    font-weight: 600;
+    width: 20%;
+  }
   p {
     text-align: initial;
   }
@@ -102,6 +107,10 @@ $box-width: 100%/3;
   }
 }
 
+.checkout-form {
+  height: 3.5vw;
+  width: 70%;
+}
 @media (max-width: 992px) {
   .checkout-container {
     .checkout-content--container {
@@ -112,6 +121,52 @@ $box-width: 100%/3;
 
 //mobile
 @media (max-width: 575.98px) {
+  .modal-delivery {
+    width: 100% !important;
+  }
+  .modal-contact {
+    width: 100% !important;
+  }
+  .contact-container {
+    .contact-button {
+      height: auto;
+    }
+  }
+  .delivery-container {
+    display: block;
+    width: 100%;
+    .delivery-button {
+      height: auto;
+    }
+  }
+  .checkout-form {
+    width: auto;
+    height: auto;
+  }
+  .button-functions {
+    width: 20% !important;
+    .button-functions-item {
+      width: 7vw !important;
+      height: 7vw !important;
+      &:nth-child(2n) {
+        i {
+          font-size: 1.2rem !important;
+        }
+      }
+      i {
+        font-size: 0.6rem !important;
+      }
+    }
+  }
+  .box-information {
+    width: 100% !important;
+  }
+  .checkout-title {
+    font-size: 0.9rem;
+  }
+  .checkout-item-button {
+    width: fit-content !important;
+  }
   .checkout-content--container {
     flex-direction: column-reverse;
     .bill-information--container {

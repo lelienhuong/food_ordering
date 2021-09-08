@@ -11,7 +11,6 @@ function Offer(props) {
     let { isOpenedBill, setOpenBill } = useContext(LayoutContext)
     let [width, setWidth] = useState(window.innerWidth)
     useLayoutEffect(() => {
-        // setWidth(window.innerWidth)
         window.addEventListener('resize', () => {
             setWidth(window.innerWidth)
         })
@@ -41,7 +40,11 @@ function Offer(props) {
                 ))
             }
             <BillInformation class={isOpenedBill ? "isOpen" : ""} />
-            <Cart />
+            {
+                width < 576 ? (<></>) : (
+                    <Cart />
+                )
+            }
         </div >
     );
 }

@@ -39,8 +39,8 @@ function Nav(props) {
                 <button onClick={() => handleOpenNavSidebar()}><i class="bi bi-list mr-4 text-4xl"></i></button>
                 <img src="/image/logo.svg" />
             </div>
-            <div>
-                <i class="bi bi-search text-3xl"></i>
+            <div onClick={() => history.push('/checkout')}>
+                <img style={{ width: "auto", height: "1.5rem" }} src='/image/logoIcon.png' />
             </div>
             <div class="nav_sidebar-container">
                 <div class="nav_sidebar-content">

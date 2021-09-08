@@ -58,13 +58,15 @@ function Checkout(props) {
         $('.checkout-container').css('margin-top', $('.nav-container').outerHeight())
     }, [width])
     useEffect(() => {
-        $(window).on("scroll", function () {
-            if ($(window).scrollTop() > 400) {
-                $(".nav-search--container").addClass("hidden");
-            } else {
-                $(".nav-search--container").addClass("hidden");
-            }
-        });
+        if (width >= 576) {
+            $(window).on("scroll", function () {
+                if ($(window).scrollTop() > 400) {
+                    $(".nav-search--container").addClass("hidden");
+                } else {
+                    $(".nav-search--container").addClass("hidden");
+                }
+            });
+        }
     })
     const [isDeliveryAddress, setDeliveryAddress] = useState({ value: false, feature: "" })
     let [isChoosedItem, setItem] = useState({})
@@ -137,7 +139,7 @@ function Checkout(props) {
                 )
             }
             return (
-                <form onSubmit={(e) => handleAppliedCode(e)} class="flex items-center justify-between bg-white p-1 mt-12" style={{ height: "3.5vw", width: "70%" }}>
+                <form onSubmit={(e) => handleAppliedCode(e)} class="flex items-center justify-between bg-white p-1 mt-12 checkout-form">
                     <SearchInput name="voucher" value={voucherCode} onChange={e => handleInputCode(e)} placeholder="Enter voucher code here" />
                     <button class="h-full applied-button">
                         Apply
@@ -157,8 +159,8 @@ function Checkout(props) {
                     <div class="w-full p-4 bg-white" style={{ boxShadow: "rgb(0 0 0 / 8%) 0px 2px 16px 0px" }}>
                         {isDeliveryAddress.value && <DeliveryModal item={isDeliveryAddress.feature === "edit" ? isChoosedItem.item : { name: '', address: '' }} index={isChoosedItem.index} feature={isDeliveryAddress.feature} setDeliveryAddress={(item) => setDeliveryAddress(item)} />}
                         <div class="flex w-full justify-between mb-5 items-center">
-                            <div class="flex justify-center items-center text-xl"><p class="part-number">1</p> Delivery Address</div>
-                            <button onClick={() => handleCreatedAddress()} class="flex justify-center items-center text-sm" style={{ color: "rgb(0, 158, 127)", fontWeight: "600", width: "20%" }}>
+                            <div class="flex justify-center items-center text-xl checkout-title"><p class="part-number">1</p> Delivery Address</div>
+                            <button onClick={() => handleCreatedAddress()} class="flex justify-center items-center text-sm checkout-item-button">
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="10px" height="12px" viewBox="0 0 12 12"><g id="Group_3351" data-name="Group 3351" transform="translate(-1367 -190)"><rect data-name="Rectangle 520" width="12" height="2" rx="1" transform="translate(1367 195)" fill="currentColor"></rect><rect data-name="Rectangle 521" width="12" height="2" rx="1" transform="translate(1374 190) rotate(90)" fill="currentColor"></rect></g></svg>
                                 Add Address
                             </button>
@@ -184,7 +186,7 @@ function Checkout(props) {
                     </div>
                     <div class="w-full p-4 bg-white mt-4" style={{ boxShadow: "rgb(0 0 0 / 8%) 0px 2px 16px 0px" }}>
                         <div class="flex w-full justify-between mb-5 items-center">
-                            <div class="flex justify-center items-center text-xl"><p class="part-number">2</p> Delivery Schedule</div>
+                            <div class="flex justify-center items-center text-xl checkout-title"><p class="part-number">2</p> Delivery Schedule</div>
                         </div>
                         <div class="delivery-container flex flex-wrap">
                             {
@@ -202,8 +204,8 @@ function Checkout(props) {
                     <div class="w-full p-4 bg-white mt-4" style={{ boxShadow: "rgb(0 0 0 / 8%) 0px 2px 16px 0px" }}>
                         {isContact.value && <ContactModal feature={isContact.feature} item={isContact.feature === "edit" ? isChoosedItem.item : { name: '', phone: '' }} index={isChoosedItem.index} feature={isContact.feature} setContact={(item) => setContact(item)} />}
                         <div class="flex w-full justify-between mb-5 items-center">
-                            <div class="flex justify-center items-center text-xl"><p class="part-number">3</p> Contact Number</div>
-                            <button onClick={() => handleCreatedContact()} class="flex justify-center items-center text-sm" style={{ color: "rgb(0, 158, 127)", fontWeight: "600", width: "20%" }}>
+                            <div class="flex justify-center items-center text-xl checkout-title"><p class="part-number">3</p> Contact Number</div>
+                            <button onClick={() => handleCreatedContact()} class="flex justify-center items-center text-sm checkout-item-button" >
                                 <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" width="10px" height="12px" viewBox="0 0 12 12"><g id="Group_3351" data-name="Group 3351" transform="translate(-1367 -190)"><rect data-name="Rectangle 520" width="12" height="2" rx="1" transform="translate(1367 195)" fill="currentColor"></rect><rect data-name="Rectangle 521" width="12" height="2" rx="1" transform="translate(1374 190) rotate(90)" fill="currentColor"></rect></g></svg>
                                 Add Contact
                             </button>

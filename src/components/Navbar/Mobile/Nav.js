@@ -10,21 +10,24 @@ import {
 import { Navigation } from 'react-minimal-side-navigation/lib';
 import { useHistory } from 'react-router';
 import LayoutContext from '../../../context/LayoutContext';
+import Modal from 'react-modal';
+import { CSSTransition } from 'react-transition-group';
+
+
+const customStyles = {
+    content: {
+        top: '0',
+        left: '0',
+        width: '60%',
+        padding: 0,
+        border: 0,
+        boxShadow: "#d3c8c8 0px 21px 36px",
+    },
+};
 
 function Nav(props) {
     let { setOpenBill, setSidebarOpen, isSidebarOpen } = useContext(LayoutContext)
     var history = useHistory()
-    React.useEffect(() => {
-        if (!isSidebarOpen) {
-            $('.nav_sidebar-content').removeClass('isShowContent')
-            $('.nav_sidebar-container').removeClass('isOpen')
-            $('.nav_sidebar-content').addClass('isClose')
-            return
-        }
-        $('.nav_sidebar-content').removeClass('isClose')
-        $('.nav_sidebar-container').addClass('isOpen')
-        $('.nav_sidebar-content').addClass('isShowContent')
-    }, [isSidebarOpen])
     const handleCloseNavSidebar = () => {
         setSidebarOpen(false)
     }
@@ -38,20 +41,31 @@ function Nav(props) {
                 <button onClick={() => handleOpenNavSidebar()}><i class="bi bi-list mr-4 text-4xl"></i></button>
                 <img src="/image/logo.svg" />
             </div>
-            <div>
-                <i class="bi bi-search text-3xl"></i>
+            <div onClick={() => history.push('/checkout')}>
+                <img style={{ width: "auto", height: "1.5rem" }} src='/image/logoIcon.png' />
             </div>
-            <div class="nav_sidebar-container">
-                <div class="nav_sidebar-content">
-                    <div class="nav_sidebar-content--header">
-                        <div class="flex justify-between w-full" >
+
+            <CSSTransition
+                in={isSidebarOpen}
+                timeout={100}
+                classNames="dialog"
+            >
+                <Modal
+                    id="nav-sidebar-modal"
+                    closeTimeoutMS={200}
+                    isOpen={isSidebarOpen}
+                    onRequestClose={() => setSidebarOpen(false)}
+                    style={customStyles}
+                >
+                    <div style={{ borderBottom: "1px solid rgb(247, 247, 247)" }}>
+                        <div class="flex justify-between w-full h-12 p-2" >
                             <button onClick={() => handleCloseNavSidebar()} style={{ color: "rgba(0, 0, 0, 0.25)" }} >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="10.003" height="10" viewBox="0 0 10.003 10"><path data-name="_ionicons_svg_ios-close (5)" d="M166.686,165.55l3.573-3.573a.837.837,0,0,0-1.184-1.184l-3.573,3.573-3.573-3.573a.837.837,0,1,0-1.184,1.184l3.573,3.573-3.573,3.573a.837.837,0,0,0,1.184,1.184l3.573-3.573,3.573,3.573a.837.837,0,0,0,1.184-1.184Z" transform="translate(-160.5 -160.55)" fill="currentColor"></path></svg>
                             </button>
                         </div>
                     </div>
                     <div class="nav_sidebar-content--body">
-                        <div class="nav_sidebar-content--products">
+                        <div class="mt-2">
                             <Router>
                                 <Navigation
                                     activeItemId="/"
@@ -68,20 +82,22 @@ function Nav(props) {
                                             itemId: '/checkout',
                                         },
                                         {
-                                            title: 'Need Help',
-                                            itemId: '/help',
-                                        },
-                                        {
                                             title: 'Offer',
                                             itemId: '/offer',
                                         },
+                                        {
+                                            title: 'Need Help',
+                                            itemId: '/help',
+                                        }
                                     ]}
                                 />
                             </Router>
                         </div>
                     </div>
-                </div>
-            </div>
+                    {/* </ReactModal> */}
+
+                </Modal>
+            </CSSTransition>
         </div >
     );
 }

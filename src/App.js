@@ -15,6 +15,7 @@ import ItemDetail from './pages/Home/ItemDetail';
 import Checkout from './pages/Checkout/Checkout';
 import itemsData from './pages/Home/items.json'
 import LayoutContext from './context/LayoutContext';
+
 function App() {
   const [modalShow, setModalShow] = useState(true);
   let [isOpenedBill, setOpenBill] = useState(false);

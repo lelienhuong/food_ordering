@@ -10,9 +10,9 @@ function ItemDetail(props) {
     const location = useLocation()
     let { itemInfo } = location.state
     let { modalShow, setModalShow } = useContext(LayoutContext)
-    
+
     // const itemInfo = props.itemInfo
-   
+
     const dispatch = useDispatch()
     let choosedItems = useSelector((state) => state.itemsInCart.choosedProducts)
 
@@ -28,14 +28,14 @@ function ItemDetail(props) {
                 setModalShow(false)
             }}
         >
-            <div>
+            <div class="itemDetail-container">
                 <div class="flex">
-                    <div class="col-6" style={{ borderRight: "2px solid rgb(247, 247, 247)" }} >
+                    <div class="col-6 flex items-center jusify-center" style={{ borderRight: "2px solid rgb(247, 247, 247)" }} >
                         <div>
                             <img class="w-full h-auto" src={itemInfo.link} />
                         </div>
                     </div>
-                    <div class="p-8">
+                    <div class="p-8 itemDetail-modal-content">
                         <div>
                             <p class="text-2xl mb-2"><strong>{itemInfo.title}</strong></p>
                             <p class="mb-6" style={{ color: "rgb(119, 121, 140)" }}>{itemInfo.unit}</p>
