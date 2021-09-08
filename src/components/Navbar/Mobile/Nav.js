@@ -22,6 +22,7 @@ const customStyles = {
         padding: 0,
         border: 0,
         boxShadow: "#d3c8c8 0px 21px 36px",
+        height: "100vh"
     },
 };
 
