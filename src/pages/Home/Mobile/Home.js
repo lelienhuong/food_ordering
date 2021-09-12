@@ -20,8 +20,7 @@ function Home(props) {
     let [isCategoryOpen, setCategoryOpen] = useState(false)
     useEffect(() => {
         $('.modal-content').css({
-            'position': 'fixed', 'bottom': 0, "left": 0, "overflow-y": "scroll",
-            "height": "80vh"
+            'position': 'fixed', 'bottom': 0, "left": 0, "overflow-y": "scroll"
         })
         if (!isOpenedBill) {
             $('.bill-content').removeClass('isShowContent')
