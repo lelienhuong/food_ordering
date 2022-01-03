@@ -10,8 +10,11 @@ import ItemDetail from '../ItemDetail';
 import LayoutContext from '../../../context/LayoutContext';
 import BillInformation from '../BillInformation';
 import Cart from '../../../components/Cart/Cart';
+import { useTranslation } from 'react-i18next';
 
 function Home(props) {
+    // const {t,i18n} = useTranslation();
+    // i18n.changeLanguage('vn');
     let { isOpenedBill, setOpenBill } = useContext(LayoutContext)
     useEffect(() => {
         window.scrollTo(0, 0)
