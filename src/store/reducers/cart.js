@@ -33,7 +33,7 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
             state.choosedProducts = products
             updatedNumbers(state)
             localStorage.setItem('choosedProducts', JSON.stringify(state.choosedProducts))
-            return state;
+            return {...state};
         }
         case ADD_AMOUNT: {
             let selectedItem = action.payload.data;
@@ -52,7 +52,7 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
             state.choosedProducts = products
             localStorage.setItem('choosedProducts', JSON.stringify(state.choosedProducts))
             updatedNumbers(state)
-            return state;
+            return {...state};
         }
         case DECREASE_AMOUNT: {
             let selectedItem = action.payload.data;
@@ -77,7 +77,7 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
             state.choosedProducts = products
             localStorage.setItem('choosedProducts', JSON.stringify(state.choosedProducts))
             updatedNumbers(state)
-            return state;
+            return {...state};
         }
         case REMOVE_ITEM: {
             let selectedItem = action.payload.data;
@@ -90,7 +90,7 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
             state.choosedProducts = products
             localStorage.setItem('choosedProducts', JSON.stringify(state.choosedProducts))
             updatedNumbers(state)
-            return state;
+            return {...state};
         }
         case ADD_VOUCHER: {
             let totalMoney = 0
@@ -103,7 +103,7 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
             totalMoney = totalMoney * (100 - discount) / 100
             state.totalBill = Number.parseFloat(totalMoney).toFixed(2)
             localStorage.setItem('totalBill', state.totalBill)
-            return state;
+            return {...state};
         }
         case REMOVE_VOUCHER: {
             let totalMoney = 0
@@ -114,7 +114,7 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
             localStorage.setItem('totalBill', state.totalBill)
             state.discount = {}
             localStorage.setItem('discount', JSON.stringify(state.discount))
-            return state;
+            return {...state};
         }
         case DONE_ORDER: {
             state.choosedProducts = []
@@ -125,9 +125,9 @@ export default function cartReducers(state = { choosedProducts, totalBill, total
             localStorage.removeItem('totalProducts')
             state.discount = {}
             localStorage.removeItem('discount')
-            return state;
+            return {...state};
         }
         default:
-            return state;
+            return {...state};
     }
 }
