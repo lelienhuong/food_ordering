@@ -41,3 +41,51 @@
     transform: translateY(0px);
   }
 }
+
+
+* {
+  margin: 0;
+  margin: 0;
+}
+.App {
+  text-align: center;
+}
+
+.component-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-leave {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.fade-leave.fade-leave-active {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 300ms ease-out;
+}
+
+.fade-appear {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.fade-appear.fade-appear-active {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.MuiAlert-message {
+  width: 100%;
+}

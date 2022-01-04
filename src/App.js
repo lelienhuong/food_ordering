@@ -1,82 +1,59 @@
 import React, { useState } from 'react';
 import './App.css';
 import './App.scss'
-import Navbar from './components/Navbar/Navbar';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
-import Home from './pages/Home/Home';
-import Offer from './pages/Offer/Offer';
-import Help from './pages/Help/Help';
-import ItemDetail from './pages/Home/ItemDetail';
-import Checkout from './pages/Checkout/Checkout';
-import itemsData from './pages/Home/items.json'
-import LayoutContext from './context/LayoutContext';
+import Sandbox from "./pages/Sandbox/Sandbox";
+import Login from "./pages/Login/Login";
+import { useDispatch } from "react-redux";
+import { LOGIN } from "./store/actions/types";
+import UserLayout from './pages/User/UserLayout';
+import AdminLayout from './pages/Admin/AdminLayout';
 
-function App() {
-  const [modalShow, setModalShow] = useState(true);
-  let [isOpenedBill, setOpenBill] = useState(false);
-  let [isSidebarOpen, setSidebarOpen] = React.useState(false)
-  let [productsData, setProductsData] = useState(itemsData[0].fruitsAndVegetable)
+function App(props) {
   return (
-    <LayoutContext.Provider
-      value={{
-        modalShow: modalShow,
-        setModalShow: (props) => setModalShow(props),
-        isOpenedBill: isOpenedBill,
-        setOpenBill: (props) => setOpenBill(props),
-        productsData: productsData,
-        setProductsData: (props) => setProductsData(props),
-        isSidebarOpen: isSidebarOpen,
-        setSidebarOpen: (props) => setSidebarOpen(props)
-      }}
-    >
-      <div className="App">
-        <LayoutContext.Consumer>
-          {() => (<>
-            <Router>
-              <Navbar id="navbar" />
-              <Switch>
-                <Route
-                  exact
-                  path="/"
-                  render={() => (<Redirect to="/grocery" />)}
-                />
-                <Route
-                  path="/grocery"
-                  component={Home}
-                />
-                <Route
-                  exact
-                  path="/product/:name"
-                  component={ItemDetail}
-                />
-                <Route
-                  exact
-                  path="/offer"
-                  component={Offer}
-                />
-                <Route
-                  exact
-                  path="/help"
-                  component={Help}
-                />
-                <Route
-                  exact
-                  path="/checkout"
-                  component={Checkout}
-                />
-              </Switch>
-            </Router>
-          </>
-          )}
-        </LayoutContext.Consumer>
-      </div>
-    </LayoutContext.Provider>
+    <div className="App">
+    <Router>
+        <Switch>
+          <Route path="/login" render={(props) => <Login {...props} />} />
+          <Route exact path="/sandbox">
+            <Sandbox />
+          </Route>
+          <PrivateRoute exact path="/admin">
+            <AdminLayout />
+          </PrivateRoute>
+          <PrivateRoute path="/" component={UserLayout} />
+        </Switch>
+      </Router>      
+    </div>
   );
 }
-
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const auth = localStorage.getItem("auth");
+  const dispatch = useDispatch();
+  if (JSON.parse(auth) !== null)
+    dispatch({ type: LOGIN, payload: { data: JSON.parse(auth) } });
+    return <Route {...rest} render={(props) => <Component {...props}/>} />
+  // return (
+  //   <Route
+  //     {...rest}
+  //     render={(props) =>
+  //       auth !== null ? (
+  //         <Component {...props} />
+  //       ) : (
+  //         <Redirect
+  //           to={{
+  //             pathname: "/login",
+  //             state: { from: rest.path },
+  //           }}
+  //         />
+  //       )
+  //     }
+  //   />
+  // );
+};
 export default App;

@@ -16,3 +16,10 @@ export const REMOVE_ADDRESS = "REMOVE_ADDRESS"
 export const ADD_CONTACT = "ADD_CONTACT"
 export const UPDATE_CONTACT = "UPDATE_CONTACT"
 export const REMOVE_CONTACT = "REMOVE_CONTACT"
+
+//
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
+export const REGISTER = "REGISTER";
+export const SET_MEMBERS_OPTION = "SET_MEMBERS_OPTION";
+export const SET_GROUPS_OPTION = "SET_GROUPS_OPTION";

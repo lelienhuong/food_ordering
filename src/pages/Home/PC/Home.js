@@ -61,7 +61,7 @@ function Home(props) {
 
             <div id="content" class="flex">
                 <div class="flex home-content--container">
-                    <Sidebar />
+                    {/* <Sidebar /> */}
                     <ListItems />
                 </div>
             </div>

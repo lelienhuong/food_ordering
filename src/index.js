@@ -8,7 +8,8 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-
+import Themes from "./themes";
+import { ThemeProvider } from "@material-ui/styles";
 i18n
 .use(initReactI18next)  
 .init({
@@ -39,12 +40,12 @@ i18n
 })
 const store = createStore(rootReducers);
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
+  <Provider store={store}>
+    <ThemeProvider theme={Themes.default}>
       <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
+    </ThemeProvider>
+  </Provider>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
