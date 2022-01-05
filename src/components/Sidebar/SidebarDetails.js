@@ -17,34 +17,40 @@ const SidebarDetails = [
     ],
   },
   {
-    id: "My groups",
+    id: "Products",
     parrentIcon: <SupervisedUserCircleIcon />,
     childIcon: [
       {
         icon: <ViewListIcon />,
-        text: "Groups list",
-        path: "/my-profile/groups/groups-index",
+        text: "Products list",
+        path: "/my-profile/products/products-index",
       },
       {
         icon: <AddCircleOutlineIcon />,
-        text: "Create a new group",
-        path: "/my-profile/groups/groups-create",
+        text: "Create a new Product",
+        path: "/my-profile/products/products-create",
       },
     ],
   },
   {
-    id: "My bills",
+    id: "Orders",
     parrentIcon: <ReceiptIcon />,
     childIcon: [
       {
         icon: <ViewListIcon />,
-        text: "Bills list",
-        path: "/my-profile/bills/bills-index",
+        text: "Orders list",
+        path: "/my-profile/orders/orders-index",
       },
+    ],
+  },
+  {
+    id: "Users",
+    parrentIcon: <ReceiptIcon />,
+    childIcon: [
       {
-        icon: <AddCircleOutlineIcon />,
-        text: "Create a new bill",
-        path: "/my-profile/bills/bills-create",
+        icon: <ViewListIcon />,
+        text: "Users list",
+        path: "/my-profile/users/users-index",
       },
     ],
   },
